@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC TAC TOE GAME</title>
+    <link rel="stylesheet" href="css/project0.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/project0.js"></script>
+
+</head>
+<header>
+    <div class="Banner">
+        <h1>Tic Tac Toe</h1>
+    </div>
+
+    <div class="guide">
+        <h3 id="instructions">PLAYER 1, PLEASE CHOOSE A SPACE</h3>
+    </div>
+</header>
+
+<body>
+    <div id="board" class="game-container">
+        <div id="result">You are playing as X.</div>
+        <center>
+            <div class="nineByNine">
+                <table id="tictac">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button class="topL_sq1"></button>
+                            </td>
+                            <td>
+                                <button class="topM_sq2"></button>
+                            </td>
+                            <td>
+                                <button class="topR_sq3"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="midL_sq4"></button>
+                            </td>
+                            <td>
+                                <button class="midM_sq5"></button>
+                            </td>
+                            <td>
+                                <button class="midR_sq6"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="lowL_sq7"></button>
+                            </td>
+                            <td>
+                                <button class="lowM_sq8"></button>
+                            </td>
+                            <td>
+                                <button class="lowR_sq9"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <br>
+            </div>
+        </center>
+        <div class="col-md-2" id="rightboard"></div>
+    </div>
+    <div class="selectionButton">
+        <input type="button" class="playerChoice" value="X" id="X">
+        <input type="button" id="reset" value="Reset" onClick="reset()">
+        <input type="button" class="playerChoice" value="O" id="O">
+    </div>
+</body>
+
+
+
+</html>

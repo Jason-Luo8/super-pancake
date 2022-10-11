@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@500&family=Silkscreen&display=swap');
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Silkscreen', cursive;
+    font-size: 85px;
+    font-weight: bold;
+    margin: 30px 0 20px 0;
+}
+
+h3 {
+    font-family: 'Gemunu Libre', sans-serif;
+    text-align: center;
+    font-size: 40px;
+}
+
+body {
+    background-color: aqua;
+    white-space: nowrap;
+    margin: 0 auto;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#board {
+    border: 15px aqua;
+}
+
+
+
+table {
+    border-spacing: 15px;
+    background-color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 6px 5px rgba(58, 18, 13, 0), 0px 0px 0px 2px #c2a782, 0px 0px 0px 4px #a58e6f, 3px 4px 8px 5px rgba(0, 0, 0, 0.5);
+}
+
+td {
+    border: 10px solid transparent;
+    background-color: aqua;
+}
+
+td:hover {
+    background-color: rgba(92, 152, 201, 0.765);
+
+}
+
+button {
+    height: 100px;
+    width: 100px;
+    background-color: rgb(166, 13, 166);
+    border: 0px transparent;
+    border-radius: 60%;
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+#result {
+    margin: 0.5em;
+    margin-bottom: 40px;
+    font: 24px sans-serif;
+    font-family: 'Gemunu Libre', sans-serif;
+}
+
+.playerChoice {
+    margin-bottom: 50px;
+}
+
+#X {
+    margin-right: 20px;
+}
+
+#O {
+    margin-left: 20px;
+}
+
+#reset {
+    padding: 10px;
+    background-color: red;
+    width: 100px;
+    margin: 5px;
+    border: 0px transparent;
+    font-family: 'Gemunu Libre', sans-serif;
+    text-transform: uppercase;
+    color: aliceblue;
+}
+
+#reset:hover {
+    opacity: 0.6;
+}
+
+#X {
+    padding: 10px;
+    background-color: rgb(70, 19, 165);
+    width: 100px;
+    margin: 5px;
+    border: 0px transparent;
+    font-family: 'Gemunu Libre', sans-serif;
+    text-transform: uppercase;
+    color: aliceblue;
+}
+
+#X:hover {
+    opacity: 0.6;
+}
+
+#O {
+    padding: 10px;
+    background-color: rgb(69, 42, 157);
+    width: 100px;
+    margin: 5px;
+    border: 0px transparent;
+    font-family: 'Gemunu Libre', sans-serif;
+    text-transform: uppercase;
+    color: aliceblue;
+}
+
+#O:hover {
+    opacity: 0.6;
+}
