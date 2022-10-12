@@ -30,35 +30,35 @@
                     <tbody>
                         <tr>
                             <td>
-                                <button class="topL_sq1"></button>
+                                <button id="1" class="topL_sq1"></button>
                             </td>
                             <td>
-                                <button class="topM_sq2"></button>
+                                <button id="2" class="topM_sq2"></button>
                             </td>
                             <td>
-                                <button class="topR_sq3"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button class="midL_sq4"></button>
-                            </td>
-                            <td>
-                                <button class="midM_sq5"></button>
-                            </td>
-                            <td>
-                                <button class="midR_sq6"></button>
+                                <button id="3" class="topR_sq3"></button>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <button class="lowL_sq7"></button>
+                                <button id="4" class="midL_sq4"></button>
                             </td>
                             <td>
-                                <button class="lowM_sq8"></button>
+                                <button id="5" class="midM_sq5"></button>
                             </td>
                             <td>
-                                <button class="lowR_sq9"></button>
+                                <button id="6" class="midR_sq6"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="7" class="lowL_sq7"></button>
+                            </td>
+                            <td>
+                                <button id="8" class="lowM_sq8"></button>
+                            </td>
+                            <td>
+                                <button id="9" class="lowR_sq9"></button>
                             </td>
                         </tr>
                     </tbody>
@@ -67,13 +67,29 @@
                 <br>
             </div>
         </center>
-        <div class="col-md-2" id="rightboard"></div>
+    </div>
+
+    <div style="clear:both"></div>
+    <div class="row">
+        <div class="col-md-6">
+            X Wins: <span id="x_win">0</span> Time(s)
+        </div>
+        <div class="col-md-6">
+            O Wins: <span id="o_win">0</span> Time(s)
+        </div>
+    </div>
+    <div id="reset" type="button" class="btn btn-success" />
+    Reset
     </div>
     <div class="selectionButton">
+        <h2>Select playing piece:</h2>
         <input type="button" class="playerChoice" value="X" id="X">
-        <input type="button" id="reset" value="Reset" onClick="reset()">
         <input type="button" class="playerChoice" value="O" id="O">
     </div>
+
+    <div id="winner"></div>
+    <div id="board" class="disable">
+
 </body>
 
 
