@@ -99,7 +99,7 @@ button {
 #score {
     font-family: 'Gemunu Libre', sans-serif;
     text-align: center;
-    font-size: 40px;
+    font-size: 20px;
     border: 1px solid green;
     width: 50%;
     padding: 10px 0;
@@ -110,7 +110,7 @@ button {
 #trackPlayer {
     font-family: 'Gemunu Libre', sans-serif;
     text-align: center;
-    font-size: 40px;
+    font-size: 20px;
     border: 1px solid green;
     width: 50%;
     padding: 10px 0;
@@ -136,7 +136,7 @@ button {
     padding: 15px;
     background-color: red;
     width: 100px;
-    margin: auto;
+    margin: 20px 20px;
     border: 0px transparent;
     font-family: 'Gemunu Libre', sans-serif;
     text-transform: uppercase;
@@ -144,6 +144,21 @@ button {
 }
 
 #reset:hover {
+    opacity: 0.6;
+}
+
+#playAgain {
+    padding: 15px;
+    background-color: green;
+    width: 100px;
+    margin: 20px 20px;
+    border: 0px transparent;
+    font-family: 'Gemunu Libre', sans-serif;
+    text-transform: uppercase;
+    color: aliceblue;
+}
+
+#playAgain:hover {
     opacity: 0.6;
 }
 

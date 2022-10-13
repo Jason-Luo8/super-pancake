@@ -5,13 +5,17 @@ let playerOneScore = 0;
 let playerTwoScore = 0;
 let drawScore = 0;
 let turn = 1;
-
+let One_Win;
+let Two_Win;
+let Draw_Win;
 
 
 $(document).ready(function () {
     let O_val = "fa fa-circle-o fa-3x";
     let X_val = "fa fa-times fa-3x";
-
+    One_Win = $('#p1_win');
+    Two_Win = $('#p2_win');
+    Draw_Win = $('#No_win');
 
 
     $("#reset").click(function () {
@@ -20,6 +24,9 @@ $(document).ready(function () {
         $("#result").css("background-color", "transparent");
         $("td button").removeClass(X_val);
         $("td button").removeClass(O_val);
+        One_Win.html(0);
+        Two_Win.html(0);
+        Draw_Win.html(0);
         turn = 1;
         gameOver = false;
         $('.selectionButton').show();
@@ -33,7 +40,29 @@ $(document).ready(function () {
         $(".lowL_sq7").css("color", "blue");
         $(".lowM_sq8").css("color", "blue");
         $(".lowR_sq9").css("color", "blue");
+        $("button").off('click');
+    });
 
+    $("#playAgain").click(function () {
+        $("#tictac td button").text('');
+        $("#result").text("IT IS NOW YOUR TURN, PLAYER 1");
+        $("#result").css("background-color", "transparent");
+        $("td button").removeClass(X_val);
+        $("td button").removeClass(O_val);
+        turn = 1;
+        gameOver = false;
+        $('.selectionButton').show();
+        // playAgain Colors
+        $(".topL_sq1").css("color", "yellow");
+        $(".topM_sq2").css("color", "yellow");
+        $(".topR_sq3").css("color", "yellow");
+        $(".midL_sq4").css("color", "yellow");
+        $(".midM_sq5").css("color", "yellow");
+        $(".midR_sq6").css("color", "yellow");
+        $(".lowL_sq7").css("color", "yellow");
+        $(".lowM_sq8").css("color", "yellow");
+        $(".lowR_sq9").css("color", "yellow");
+        $("button").off('click');
     });
 
     // select piece
@@ -53,6 +82,10 @@ $(document).ready(function () {
             Two_Player.html('X');
             console.log(`Current turn: ${turn}`);
         }
+        $("button").off('click');
+        $("button").click(mainGame);
+
+
 
     });
 
@@ -62,7 +95,7 @@ $(document).ready(function () {
     //     turn = 1
     // } else if o selected turn equlas 2
 
-    $("button").click(function () {
+    const mainGame = function () {
         //timeout
         $('.selectionButton').hide();
 
@@ -97,7 +130,7 @@ $(document).ready(function () {
         }
 
 
-    });
+    };
 
     function check(symbol) {
         if ($(".topL_sq1").hasClass(symbol) &&
@@ -164,9 +197,7 @@ $(document).ready(function () {
     function showGameOver(symbol) {
         let target = $("#result");
         let title = $('#instructions');
-        let One_Win = $('#p1_win');
-        let Two_Win = $('#p2_win');
-        let Draw_Win = $('#No_win');
+
         if (symbol == X_val) {
             target.text("X wins!");
             title.text("Congratulations!");
