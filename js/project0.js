@@ -1,40 +1,28 @@
 let gameOver = false;
+let Xscore = 0;
+let Yscore = 0;
+let playerOneScore = 0;
+let playerTwoScore = 0;
+let drawScore = 0;
+let turn = 1;
+
 
 
 $(document).ready(function () {
-    let O = "fa fa-circle-o fa-3x";
-    let X = "fa fa-times fa-3x";
-    let P1val;
-    let P2val;
+    let O_val = "fa fa-circle-o fa-3x";
+    let X_val = "fa fa-times fa-3x";
 
 
-
-    // $(".playerChoice").click(function (id) {
-    //     player = $(this).val();
-    //     if (id == 'O' || id == 'X') {
-    //         if (id == 'X') {
-    //             P1val = 'X';
-    //             P2val = 'O';
-    //         } else {
-    //             P1val = 'O';
-    //             P2val = 'X';
-    //         }
-    //         game = true;
-
-    //     }
-    //     console.log('player1val: ' + P1val);
-    //     console.log('player2val: ' + P2val);
-
-    // });
 
     $("#reset").click(function () {
         $("#tictac td button").text('');
         $("#result").text("IT IS NOW YOUR TURN, PLAYER 1");
         $("#result").css("background-color", "transparent");
-        $("td button").removeClass(X);
-        $("td button").removeClass(O);
-        turn === 1;
+        $("td button").removeClass(X_val);
+        $("td button").removeClass(O_val);
+        turn = 1;
         gameOver = false;
+        $('.selectionButton').show();
         // Reset Colors
         $(".topL_sq1").css("color", "blue");
         $(".topM_sq2").css("color", "blue");
@@ -48,11 +36,36 @@ $(document).ready(function () {
 
     });
 
+    // select piece
+    $(".playerChoice").click(function () {
+        let One_Player = $('#p1_track');
+        let Two_Player = $('#p2_track');
 
-    let turn = 1;
+        const id = $(this).attr("id");
+        if (id == 'X') {
+            turn = 2;
+            One_Player.html('X');
+            Two_Player.html('O');
+            console.log(`Current turn: ${turn}`);
+        } else if (id == 'O') {
+            turn = 1;
+            One_Player.html('O');
+            Two_Player.html('X');
+            console.log(`Current turn: ${turn}`);
+        }
+
+    });
+
+
+
+    // if x selected{
+    //     turn = 1
+    // } else if o selected turn equlas 2
 
     $("button").click(function () {
         //timeout
+        $('.selectionButton').hide();
+
         console.log("checking if piece placed");
         if ($(this).hasClass("fa fa-times fa-3x") ||
             $(this).hasClass("fa fa-circle-o fa-3x")) {
@@ -70,12 +83,14 @@ $(document).ready(function () {
 
         console.log("Placing piece");
         if (turn === 1) {
-            $("#result").text("IT IS NOW YOUR TURN, PLAYER 1")
+            $("#result").text("IT IS NOW YOUR TURN, PLAYER 2")
+            $("#instructions").text("PLAYER 2, PLEASE CHOOSE A SPACE")
 
             $(this).addClass("fa fa-circle-o fa-3x");
             turn = 2;
         } else {
-            $("#result").text("IT IS NOW YOUR TURN, PLAYER 2")
+            $("#result").text("IT IS NOW YOUR TURN, PLAYER 1")
+            $("#instructions").text("PLAYER 1, PLEASE CHOOSE A SPACE")
 
             $(this).addClass("fa fa-times fa-3x");
             turn = 1;
@@ -147,16 +162,26 @@ $(document).ready(function () {
     }
 
     function showGameOver(symbol) {
-        let target;
-        target = $("#result");
-        if (symbol == X) {
-            target.text("X win!");
+        let target = $("#result");
+        let title = $('#instructions');
+        let One_Win = $('#p1_win');
+        let Two_Win = $('#p2_win');
+        let Draw_Win = $('#No_win');
+        if (symbol == X_val) {
+            target.text("X wins!");
+            title.text("Congratulations!");
+            One_Win.html(++playerOneScore);
             gameOver = true;
-        } else if (symbol == O) {
-            target.text("O win!");
+        } else if (symbol == O_val) {
+            target.text("O wins!");
+            title.text("Congratulations!");
+            Two_Win.html(++playerTwoScore);
             gameOver = true;
         } else {
-            target.text("Draw");
+            target.text("It's a Draw!");
+            title.text("It was a close match!");
+            Draw_Win.html(++drawScore);
+            gameOver = true;
         }
     }
 
@@ -172,12 +197,12 @@ $(document).ready(function () {
         }
         // gridCell.text(player);
 
-        result = check(X);
-        if (check(X)) {
-            showGameOver(X);
+        result = check(X_val);
+        if (check(X_val)) {
+            showGameOver(X_val);
             return;
-        } else if (check(O)) {
-            showGameOver(O);
+        } else if (check(O_val)) {
+            showGameOver(O_val);
             return;
         } else if ($('button.fa').length === 9) {
             showGameOver();
