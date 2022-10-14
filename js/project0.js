@@ -1,3 +1,4 @@
+//Declare global variables
 let gameOver = false;
 let Xscore = 0;
 let Yscore = 0;
@@ -8,19 +9,23 @@ let turn = 1;
 let One_Win;
 let Two_Win;
 let Draw_Win;
+let playerSelection;
 
-
+//Start javascript/jquery
 $(document).ready(function () {
     let O_val = "fa fa-circle-o fa-3x";
     let X_val = "fa fa-times fa-3x";
     One_Win = $('#p1_win');
     Two_Win = $('#p2_win');
     Draw_Win = $('#No_win');
+    $("#instructions").text("PLAYER 1, PLEASE PICK X OR O");
+    $("#result").text("WELCOME TO TIC TAC TOE!");
 
-
+    //Set Reset function
     $("#reset").click(function () {
         $("#tictac td button").text('');
-        $("#result").text("IT IS NOW YOUR TURN, PLAYER 1");
+        $("#instructions").text("PLAYER 1, PLEASE PICK X OR O");
+        $("#result").text("WELCOME TO TIC TAC TOE!");
         $("#result").css("background-color", "transparent");
         $("td button").removeClass(X_val);
         $("td button").removeClass(O_val);
@@ -31,107 +36,126 @@ $(document).ready(function () {
         gameOver = false;
         $('.selectionButton').show();
         // Reset Colors
-        $(".topL_sq1").css("color", "blue");
-        $(".topM_sq2").css("color", "blue");
-        $(".topR_sq3").css("color", "blue");
-        $(".midL_sq4").css("color", "blue");
-        $(".midM_sq5").css("color", "blue");
-        $(".midR_sq6").css("color", "blue");
-        $(".lowL_sq7").css("color", "blue");
-        $(".lowM_sq8").css("color", "blue");
-        $(".lowR_sq9").css("color", "blue");
+        $(".topL_sq1").css("color", "black");
+        $(".topM_sq2").css("color", "black");
+        $(".topR_sq3").css("color", "black");
+        $(".midL_sq4").css("color", "black");
+        $(".midM_sq5").css("color", "black");
+        $(".midR_sq6").css("color", "black");
+        $(".lowL_sq7").css("color", "black");
+        $(".lowM_sq8").css("color", "black");
+        $(".lowR_sq9").css("color", "black");
         $("button").off('click');
     });
 
+    //set playAgain function
     $("#playAgain").click(function () {
         $("#tictac td button").text('');
-        $("#result").text("IT IS NOW YOUR TURN, PLAYER 1");
         $("#result").css("background-color", "transparent");
         $("td button").removeClass(X_val);
         $("td button").removeClass(O_val);
         turn = 1;
         gameOver = false;
         $('.selectionButton').show();
-        // playAgain Colors
-        $(".topL_sq1").css("color", "yellow");
-        $(".topM_sq2").css("color", "yellow");
-        $(".topR_sq3").css("color", "yellow");
-        $(".midL_sq4").css("color", "yellow");
-        $(".midM_sq5").css("color", "yellow");
-        $(".midR_sq6").css("color", "yellow");
-        $(".lowL_sq7").css("color", "yellow");
-        $(".lowM_sq8").css("color", "yellow");
-        $(".lowR_sq9").css("color", "yellow");
+
+        $("#instructions").text("PLAYER 1, PLEASE PICK X OR O");
+        $("#result").text("TIME FOR THE NEXT ROUND!");
+
+
+        //Set playAgain Colors
+        $(".topL_sq1").css("color", "black");
+        $(".topM_sq2").css("color", "black");
+        $(".topR_sq3").css("color", "black");
+        $(".midL_sq4").css("color", "black");
+        $(".midM_sq5").css("color", "black");
+        $(".midR_sq6").css("color", "black");
+        $(".lowL_sq7").css("color", "black");
+        $(".lowM_sq8").css("color", "black");
+        $(".lowR_sq9").css("color", "black");
         $("button").off('click');
     });
 
-    // select piece
+    //Player 1 selection for X/O
     $(".playerChoice").click(function () {
         let One_Player = $('#p1_track');
         let Two_Player = $('#p2_track');
 
+        //Print out what the player 1 has chosen
         const id = $(this).attr("id");
         if (id == 'X') {
             turn = 2;
             One_Player.html('X');
             Two_Player.html('O');
+            $("#result").text("PLAYER 1 HAS CHOSEN TO BE X");
             console.log(`Current turn: ${turn}`);
+            playerSelection = 'X';
         } else if (id == 'O') {
             turn = 1;
             One_Player.html('O');
             Two_Player.html('X');
+            $("#result").text("PLAYER 1 HAS CHOSEN TO BE O");
             console.log(`Current turn: ${turn}`);
+            playerSelection = 'O';
         }
         $("button").off('click');
         $("button").click(mainGame);
-
-
-
     });
 
-
-
-    // if x selected{
-    //     turn = 1
-    // } else if o selected turn equlas 2
-
+    //Load up main game
     const mainGame = function () {
-        //timeout
+
+        //Hide the selection button
         $('.selectionButton').hide();
 
+        //Checks if the space is occupied
         console.log("checking if piece placed");
         if ($(this).hasClass("fa fa-times fa-3x") ||
             $(this).hasClass("fa fa-circle-o fa-3x")) {
             $(this).css("background-color", "red");
             setTimeout(() => {
-                $(this).css("background-color", "white");
+                $(this).css("background-color", "#E4E0C7");
             }, 800);
 
             return;
 
         }
+        //When game is over, ends game function
         if (gameOver) {
             return;
         }
 
+        //Main function of gameplay
         console.log("Placing piece");
         if (turn === 1) {
-            $("#result").text("IT IS NOW YOUR TURN, PLAYER 2")
-            $("#instructions").text("PLAYER 2, PLEASE CHOOSE A SPACE")
+            let currentPlayer;
+            if (playerSelection === "O") {
+                currentPlayer = "Player 1";
+            } else {
+                currentPlayer = "Player 2";
+            }
+            $("#result").text(`IT IS NOW YOUR TURN, ${currentPlayer}`);
+            $("#instructions").text(`${currentPlayer}, PLEASE CHOOSE A SPACE`);
 
             $(this).addClass("fa fa-circle-o fa-3x");
             turn = 2;
+
         } else {
-            $("#result").text("IT IS NOW YOUR TURN, PLAYER 1")
-            $("#instructions").text("PLAYER 1, PLEASE CHOOSE A SPACE")
+            let currentPlayer;
+            if (playerSelection === "X") {
+                currentPlayer = "Player 1";
+            } else {
+                currentPlayer = "Player 2";
+            }
+            $("#result").text(`IT IS NOW YOUR TURN, ${currentPlayer}`);
+            $("#instructions").text(`${currentPlayer}, PLEASE CHOOSE A SPACE`);
 
             $(this).addClass("fa fa-times fa-3x");
             turn = 1;
         }
 
-
     };
 
+    //Win conditions
     function check(symbol) {
         if ($(".topL_sq1").hasClass(symbol) &&
             $(".topM_sq2").hasClass(symbol) &&
@@ -194,6 +218,7 @@ $(document).ready(function () {
         }
     }
 
+    //Game over screens
     function showGameOver(symbol) {
         let target = $("#result");
         let title = $('#instructions');
@@ -216,18 +241,18 @@ $(document).ready(function () {
         }
     }
 
-
-
+    //Main button functionality 
     $("#tictac td").click(function () {
         let gridCell, result;
         gridCell = $(this);
         console.log('test');
-        // debugger
+
+        //Remove whitespace
         if (gridCell.text().trim() !== '') {
             return;
         }
-        // gridCell.text(player);
 
+        //Checking who won
         result = check(X_val);
         if (check(X_val)) {
             showGameOver(X_val);
@@ -241,69 +266,8 @@ $(document).ready(function () {
         }
     });
 
-
-
-
-
-
-    // function updateScore(board, player) {
-    //     if (player == player1) {
-    //         if (checkWin(board, player)) {
-    //             game = false;
-    //             setTimeout(function () {
-    //                 winner.innerHTML = "<h1>player1 won !</h1>";
-    //             }, 1000);
-    //             return;
-    //         }
-    //     } else {
-    //         if (checkWin(board, player)) {
-    //             game = false;
-    //             setTimeout(function () {
-    //                 winner.innerHTML = "<h1>player2 won !</h1>";
-    //             }, 1000);
-    //             return;
-    //         }
-
-    //     }
-    // }
-    // if (checkBoard(board)) {
-    //     //  console.log(cb); 
-    //     setTimeout(function () {
-    //         winner.innerHTML = "<h1>Tie !</h1>";
-    //         //reset();
-    //     }, 1000);
-    //     return;
-    // }
-
-    // function checkWin(board, player) {
-    //     let value;
-    //     value = player == player1 ? P1val : P2val;
-    // }
-    // // loop through winningboard to find win sequence
-    // for (let x = 0; x < 8; x++) {
-    //     let win = true;
-    //     for (let y = 0; y < 3; y++) {
-    //         if (board[winningBoard[x][y]] != value) {
-    //             win = false;
-    //             break;
-    //         }
-    //     }
-    //     if (win) {
-    //         return true;
-    //     }
-    // }
-    // return false;
-
-
-    // function checkBoard(board) {
-    //     for (var i = 0; i < board.length; i++) {
-    //         if (board[i] == 0) {
-    //             return false;
-    //         }
-    //     }
-    //     return true;
-    // }
-
-
-
+    //Easter Egg
+    $("#easterEgg").click(function () {
+        $("#pancake").toggle();
+    })
 });

@@ -1,45 +1,36 @@
-#Intro to Markdown
+# A simple retro Tic Tac Toe game
+A demo of a simple tic tac toe game, with some personal touches. Hope you enjoy it! Feedback is most welcome :)
 
-## Subheading
-### Subsubheading
+![Website Overview](./VOitems/Website%20Picture.png)
 
-Paragraphys are automatically respected.
+## How to play
+This **two player** game is set on a **3 x 3** grid. Each player chooses a mark, either X or O, to play with. Players will take alternating turns to place one piece per turn.
 
-This is a second paragraph.
+The first player to get three of their marks in a row (horizontally, vertically or diagonally) is the winner! When all 9 squares are full with no clear winner, the game ends in a draw.
 
-##Blockquotes
->I invented the WEb. --Time Berners-Lee
+## Code Overview
+The file composition of the code consists of 3 seperate files of code. This includes: 
 
-##Lists
+* HTML
+* CSS
+* Javascript
 
-* Groucho
-* Harpo
-* Chico
+## Libraries Used
+* JQuery
+* Code Awesome Font Library
 
-##Numbered Lists
-1. Groucho
-1. Harpo
-1. Chico
+### Video/Audio File Sources
+* [Fantasic Journey](https://www.youtube.com/watch?v=juAAC5A8xBQ)
+* [Cyberpunk Arcade](https://gifer.com/en/R53J)
+* [Pancake](https://pug-of-war.tumblr.com/post/99457799051/more-breakfast-or-brekkie-as-we-call-it)
 
-##Code Formatting
+### Play
+[Play the Tic Tac Toe game here](https://jason-luo8.github.io/super-pancake/)
 
-jQuery makes frequent use of the `$` variable. The DOM favours the `document` object.
+### Future Improvements
+* AI bot player
+* More sound effects
+* *More memes*
 
-```javascript
-const hey = function(){
-    console.log('hi');
-}
-```
-
-```ruby
-def hello
-puts "Hi"
-end
-```
-
-## Links
-Here is a [link to the W3C](http://w3c.org/). Is that convenient.
-
-## Formatting
-
-We can add *italic emphasis*, **bold emphasis**, ***combined***, Other _favours__also_ __available__.
+## Acknowledgements
+Thank you to [Joel](https://github.com/wofockham) and [Loden](https://github.com/Tenzang) for all the debugging, suggestions, and improvements :D
