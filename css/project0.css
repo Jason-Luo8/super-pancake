@@ -10,7 +10,7 @@ h1 {
     margin: 30px 0 20px 0;
 }
 
-.Banner {
+.banner {
     border: 1px solid green;
     width: 50%;
     color: #E4E0C7;
@@ -45,21 +45,13 @@ body {
     text-align: center;
 }
 
-.column1 {
+.column-1 {
     width: 33.33%;
     display: inline-block;
 
 }
 
-.nineByNine {
-    border: 15px rgb(203, 30, 30);
-    /* display: grid; */
-    display: inline-block;
-    width: 33.33%;
-
-}
-
-.column3 {
+.column-3 {
     display: inline-block;
     width: 33.33%;
     text-align: left;
@@ -119,7 +111,7 @@ button {
     margin: 30px auto;
 }
 
-#trackPlayer {
+#track-player {
     font-family: 'Gemunu Libre', sans-serif;
     text-align: center;
     font-size: 20px;
@@ -133,17 +125,9 @@ button {
 
 }
 
-.playerChoice {
+.player-choice {
     margin-bottom: 50px;
 
-}
-
-#X {
-    margin-right: 20px;
-}
-
-#O {
-    margin-left: 20px;
 }
 
 #reset {
@@ -158,10 +142,10 @@ button {
 }
 
 #reset:hover {
-    opacity: 0.6;
+    opacity: 0.7;
 }
 
-#playAgain {
+#play-again {
     padding: 15px;
     background-color: green;
     width: 100px;
@@ -172,16 +156,18 @@ button {
     color: #E4E0C7;
 }
 
-#playAgain:hover {
-    opacity: 0.6;
+#play-again:hover {
+    opacity: 0.7;
 }
 
 #X {
     padding: 20px 30px;
     background-color: rgb(70, 19, 165);
     width: 100px;
+    margin-right: 20px;
     margin: 20px 20px;
     border: 0px transparent;
+    font-size: 30px;
     font-family: 'Gemunu Libre', sans-serif;
     text-transform: uppercase;
     color: #E4E0C7;
@@ -196,9 +182,11 @@ button {
     padding: 20px 30px;
     background-color: rgb(69, 42, 157);
     width: 100px;
+    margin-left: 20px;
     margin: 20px 20px;
     border: 0px transparent;
     font-family: 'Gemunu Libre', sans-serif;
+    font-size: 30px;
     text-transform: uppercase;
     color: #E4E0C7;
 }
@@ -208,7 +196,7 @@ button {
     background-color: #8C7178
 }
 
-#easterEgg {
+#easter-egg {
     width: 200px;
     height: 200px;
     position: absolute;

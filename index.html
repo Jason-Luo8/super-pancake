@@ -11,99 +11,93 @@
     <script src="js/project0.js"></script>
 
 </head>
-<header>
-    <div class="Banner">
+
+<body>
+    <audio src="../super-pancake/VOitems/Fantastic Dreamer.mp3" loop autoplay></audio>
+
+    <div class="banner">
         <h1>Tic Tac Toe</h1>
     </div>
 
     <div class="guide">
         <h3 id="instructions">PLAYER 1, PLEASE CHOOSE A SPACE</h3>
     </div>
-    <div class="selectionButton">
-        <input type="button" class="playerChoice" value="X" id="X">
-        <input type="button" class="playerChoice" value="O" id="O">
+    <div class="selection-button">
+        <input type="button" class="player-choice" value="X" id="X">
+        <input type="button" class="player-choice" value="O" id="O">
     </div>
-</header>
 
-<body>
-    <audio src="../super-pancake/VOitems/Fantastic Dreamer.mp3" loop autoplay></audio>
     <div id="board" class="game-container">
         <div id="result">IT IS NOW YOUR TURN, PLAYER 1</div>
-        <div class="column1">
-            <div id="easterEgg">
+        <div class="column-1">
+            <div id="easter-egg">
                 <input type="image" class="pancake" value="pancake" id="pancake" src="./VOitems/pancake.gif">
             </div>
         </div>
-        <div class="nineByNine">
-            <table id="tictac">
-                <tbody>
-                    <tr>
-                        <td>
-                            <button id="1" class="topL_sq1"></button>
-                        </td>
-                        <td>
-                            <button id="2" class="topM_sq2"></button>
-                        </td>
-                        <td>
-                            <button id="3" class="topR_sq3"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button id="4" class="midL_sq4"></button>
-                        </td>
-                        <td>
-                            <button id="5" class="midM_sq5"></button>
-                        </td>
-                        <td>
-                            <button id="6" class="midR_sq6"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button id="7" class="lowL_sq7"></button>
-                        </td>
-                        <td>
-                            <button id="8" class="lowM_sq8"></button>
-                        </td>
-                        <td>
-                            <button id="9" class="lowR_sq9"></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <br>
-            <br>
-        </div>
-        <div class="column3">
-            <aside>
-                <div id="score">
-                    Player 1 Wins: <span id="p1_win">0</span> Time(s)
-                    <br>
-                    Player 2 Wins: <span id="p2_win">0</span> Time(s)
-                    <br>
-                    Draws: <span id="No_win">0</span> Time(s)
-                </div>
-                <div id="trackPlayer">
-                    Player 1: <span id="p1_track">O</span>
-                    <br>
-                    Player 2: <span id="p2_track">X</span>
-                    <br>
-                </div>
-            </aside>
-        </div>
+
+        <table id="tictac">
+            <tbody>
+                <tr>
+                    <td>
+                        <button id="1" class="topL_sq1 square"></button>
+                    </td>
+                    <td>
+                        <button id="2" class="topM_sq2 square"></button>
+                    </td>
+                    <td>
+                        <button id="3" class="topR_sq3 square"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="4" class="midL_sq4 square"></button>
+                    </td>
+                    <td>
+                        <button id="5" class="midM_sq5 square"></button>
+                    </td>
+                    <td>
+                        <button id="6" class="midR_sq6 square"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="7" class="lowL_sq7 square"></button>
+                    </td>
+                    <td>
+                        <button id="8" class="lowM_sq8 square"></button>
+                    </td>
+                    <td>
+                        <button id="9" class="lowR_sq9 square"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <aside class="column-3">
+            <div id="score">
+                Player 1 Wins: <span class="player-result" id="p1_win">0</span> Time(s)
+                <br>
+                Player 2 Wins: <span class="player-result" id="p2_win">0</span> Time(s)
+                <br>
+                Draws: <span class="playerResult" id="No_win">0</span> Time(s)
+            </div>
+            <div id="track-player">
+                Player 1: <span id="p1_track">O</span>
+                <br>
+                Player 2: <span id="p2_track">X</span>
+                <br>
+            </div>
+        </aside>
+
     </div>
 
-    <div class="gamePlay">
+    <div class="game-play">
         <input id="reset" value="Reset" type="button" />
-        <input id="playAgain" value="Play Again" type="button" />
+        <input id="play-again" value="Play Again" type="button" />
     </div>
 
     <div id="winner"></div>
-    <div id="board" class="disable">
 
 </body>
-
-
 
 </html>
